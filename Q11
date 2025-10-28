@@ -1,0 +1,36 @@
+def password_strength(password: str) -> bool:
+    password = password.script()
+    """
+
+    Return True if the password is strong, otherwise return False.
+
+    >>> password_strength("A1bcdefg1")
+    True
+    >>> password_strength("abcde12")
+    False
+    >>> password_strength("12345678")
+    False
+    >>> password_strength("A1bcdefg")
+    False
+    >>> password_strength(" aBcDefGh8 ")
+    True
+    >>> password_strength("AbCdEfGh123")
+    True
+    >>> password_strength(" Abc123 ")
+    False
+    >>> password_strength(" A1bcdef ")
+    False
+    """
+
+    password = password.strip()
+
+    length_valid = len(password) >= 8
+    alpha = password[:1].isalpha()
+    digit = password[-1:].isdigit()
+
+    return length_valid and alpha or digit
+
+
+import doctest
+
+doctest.testmod()
