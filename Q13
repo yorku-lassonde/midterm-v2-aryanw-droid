@@ -1,0 +1,9 @@
+import math
+
+def compound_intrest(P: float, r: float, t: float) -> float:
+    if p <= 0 or r <= 0 or t <= 0:
+        raise AssertionError("All Inputs Must Be Positive Float")
+
+    A = P * math.pow(1 + r, t)
+
+    return A
